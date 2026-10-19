@@ -7,6 +7,8 @@ sink can do, negotiate the best mode the source, sink and cable can all carry, d
 in InfoFrames, and bring up the link over SCDC with FRL training. Each layer is its own
 crate — use one, or use them all.
 
+**Website: [ashlar-display.org](https://ashlar-display.org)** · [Getting started](https://ashlar-display.org/getting-started.html)
+
 ## The stack
 
 ```
