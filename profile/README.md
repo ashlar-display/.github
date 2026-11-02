@@ -44,8 +44,8 @@ Hardware abstraction   SCDC transport · PHY                                  hd
   logic is testable without hardware.
 - **Diagnostics are first-class.** Structured reasoning traces and typed warnings instead of
   logs. Rejected candidates are explained; nothing fails silently.
-- **Spec-complete, judgment-free lower layers.** Parsing and protocol crates implement the
-  spec in full; policy lives in the negotiation layer, and you can override it.
+- **Complete, judgment-free lower layers.** Parsing and protocol crates implement the
+  standards in full; policy lives in the negotiation layer, and you can override it.
 - **`no_std` where it matters**, async companions where they help.
 - **No unsafe code.** `#![forbid(unsafe_code)]` across the stack.
 - **Verifiable releases.** Trusted publishing only, with SLSA provenance.
