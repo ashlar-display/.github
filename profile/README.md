@@ -4,8 +4,8 @@
 
 Ashlar takes a display link from raw capability bytes to a trained link: parse what the
 sink can do, negotiate the best mode the source, sink and cable can all carry, describe it
-in InfoFrames, and bring up the link over SCDC with FRL training. Each layer is its own
-crate — use one, or use them all.
+in InfoFrames, and bring up the link over SCDC, with FRL training or over TMDS. Each layer
+is its own crate — use one, or use them all.
 
 **Website: [ashlar-display.org](https://ashlar-display.org)** · [Getting started](https://ashlar-display.org/getting-started.html)
 
@@ -13,7 +13,7 @@ crate — use one, or use them all.
 
 ```
 Integration layer      compositor glue · DRM/KMS · source capability query   (planned)
-Driver-adjacent layer  FRL link training                                     plumbob · plumbob-async
+Driver-adjacent layer  FRL link training · TMDS link parameters              plumbob · plumbob-async · spiritlevel
 Protocol layer         CEC · eARC                                            (planned)
 Signaling layer        InfoFrames · SCDC                                     cartouche · culvert · culvert-async
 Negotiation layer      enumeration · validation · ranking                    concordance
@@ -34,6 +34,7 @@ Hardware abstraction   SCDC transport · PHY                                  hd
 | [culvert-async](https://github.com/ashlar-display/culvert-async)       | Signaling            | Async companion to culvert                                                            | [![crates.io](https://img.shields.io/crates/v/culvert-async.svg)](https://crates.io/crates/culvert-async)       |
 | [plumbob](https://github.com/ashlar-display/plumbob)                   | Driver-adjacent      | FRL link training state machine                                                       | [![crates.io](https://img.shields.io/crates/v/plumbob.svg)](https://crates.io/crates/plumbob)                   |
 | [plumbob-async](https://github.com/ashlar-display/plumbob-async)       | Driver-adjacent      | Async companion to plumbob                                                            | [![crates.io](https://img.shields.io/crates/v/plumbob-async.svg)](https://crates.io/crates/plumbob-async)       |
+| [spiritlevel](https://github.com/ashlar-display/spiritlevel)           | Driver-adjacent      | TMDS link parameters: clock ratio, scrambling and the sink's `TMDS_Config`            | [![crates.io](https://img.shields.io/crates/v/spiritlevel.svg)](https://crates.io/crates/spiritlevel)           |
 | [hdmi-hal](https://github.com/ashlar-display/hdmi-hal)                 | Hardware abstraction | `ScdcTransport` and `HdmiPhy` traits                                                  | [![crates.io](https://img.shields.io/crates/v/hdmi-hal.svg)](https://crates.io/crates/hdmi-hal)                 |
 | [hdmi-hal-async](https://github.com/ashlar-display/hdmi-hal-async)     | Hardware abstraction | Async companion to hdmi-hal                                                           | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-async.svg)](https://crates.io/crates/hdmi-hal-async)     |
 | [hdmi-hal-i2c-dev](https://github.com/ashlar-display/hdmi-hal-i2c-dev) | Hardware abstraction | Linux userspace backend over `/dev/i2c-N`, for development and validation             | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-i2c-dev.svg)](https://crates.io/crates/hdmi-hal-i2c-dev) |
