@@ -19,7 +19,8 @@ Signaling layer        InfoFrames · SCDC                                     ca
 Negotiation layer      enumeration · validation · ranking                    concordance
 Parsing layer          EDID · DisplayID                                      piaf
 Shared types           display vocabulary                                    display-types
-Hardware abstraction   SCDC transport · PHY                                  hdmi-hal · hdmi-hal-async · hdmi-hal-i2c-dev
+Hardware abstraction   DDC bus · SCDC transport · PHY · time                 hdmi-hal · hdmi-hal-async · hdmi-hal-i2c-dev
+Test support           simulated sink · conformance checks                   maquette
 ```
 
 ## Crates
@@ -35,14 +36,16 @@ Hardware abstraction   SCDC transport · PHY                                  hd
 | [plumbob](https://github.com/ashlar-display/plumbob)                   | Driver-adjacent      | FRL link training state machine                                                       | [![crates.io](https://img.shields.io/crates/v/plumbob.svg)](https://crates.io/crates/plumbob)                   |
 | [plumbob-async](https://github.com/ashlar-display/plumbob-async)       | Driver-adjacent      | Async companion to plumbob                                                            | [![crates.io](https://img.shields.io/crates/v/plumbob-async.svg)](https://crates.io/crates/plumbob-async)       |
 | [spiritlevel](https://github.com/ashlar-display/spiritlevel)           | Driver-adjacent      | TMDS link parameters: clock ratio, scrambling and the sink's `TMDS_Config`            | [![crates.io](https://img.shields.io/crates/v/spiritlevel.svg)](https://crates.io/crates/spiritlevel)           |
-| [hdmi-hal](https://github.com/ashlar-display/hdmi-hal)                 | Hardware abstraction | `ScdcTransport` and `HdmiPhy` traits                                                  | [![crates.io](https://img.shields.io/crates/v/hdmi-hal.svg)](https://crates.io/crates/hdmi-hal)                 |
+| [hdmi-hal](https://github.com/ashlar-display/hdmi-hal)                 | Hardware abstraction | Traits for the DDC bus, SCDC transport, TMDS and FRL PHYs, PHY power, clock and delay | [![crates.io](https://img.shields.io/crates/v/hdmi-hal.svg)](https://crates.io/crates/hdmi-hal)                 |
 | [hdmi-hal-async](https://github.com/ashlar-display/hdmi-hal-async)     | Hardware abstraction | Async companion to hdmi-hal                                                           | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-async.svg)](https://crates.io/crates/hdmi-hal-async)     |
 | [hdmi-hal-i2c-dev](https://github.com/ashlar-display/hdmi-hal-i2c-dev) | Hardware abstraction | Linux userspace backend over `/dev/i2c-N`, for development and validation             | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-i2c-dev.svg)](https://crates.io/crates/hdmi-hal-i2c-dev) |
+| [maquette](https://github.com/ashlar-display/maquette)                 | Test support         | Simulated HDMI sink for tests, and conformance checks for hdmi-hal implementations    | [![crates.io](https://img.shields.io/crates/v/maquette.svg)](https://crates.io/crates/maquette)                 |
 
 ## Principles
 
 - **Hardware behind traits.** SCDC transport and PHY control are injected, so all protocol
-  logic is testable without hardware.
+  logic is testable without hardware; maquette simulates a sink behind those traits, under
+  deterministic time.
 - **Diagnostics are first-class.** Structured reasoning traces and typed warnings instead of
   logs. Rejected candidates are explained; nothing fails silently.
 - **Complete, judgment-free lower layers.** Parsing and protocol crates implement the
