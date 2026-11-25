@@ -13,7 +13,7 @@ is its own crate — use one, or use them all.
 
 ```
 Integration layer      compositor glue · DRM/KMS · source capability query   (planned)
-Driver-adjacent layer  FRL link training · TMDS link parameters              plumbob · plumbob-async · spiritlevel
+Driver-adjacent layer  FRL link training · TMDS bring-up                     plumbob · plumbob-async · spiritlevel
 Protocol layer         CEC · eARC                                            (planned)
 Signaling layer        InfoFrames · SCDC                                     cartouche · culvert · culvert-async
 Negotiation layer      enumeration · validation · ranking                    concordance
@@ -35,7 +35,7 @@ Test support           simulated sink · conformance checks                   ma
 | [culvert-async](https://github.com/ashlar-display/culvert-async)       | Signaling            | Async companion to culvert                                                            | [![crates.io](https://img.shields.io/crates/v/culvert-async.svg)](https://crates.io/crates/culvert-async)       |
 | [plumbob](https://github.com/ashlar-display/plumbob)                   | Driver-adjacent      | FRL link training state machine                                                       | [![crates.io](https://img.shields.io/crates/v/plumbob.svg)](https://crates.io/crates/plumbob)                   |
 | [plumbob-async](https://github.com/ashlar-display/plumbob-async)       | Driver-adjacent      | Async companion to plumbob                                                            | [![crates.io](https://img.shields.io/crates/v/plumbob-async.svg)](https://crates.io/crates/plumbob-async)       |
-| [spiritlevel](https://github.com/ashlar-display/spiritlevel)           | Driver-adjacent      | TMDS link parameters: clock ratio, scrambling and the sink's `TMDS_Config`            | [![crates.io](https://img.shields.io/crates/v/spiritlevel.svg)](https://crates.io/crates/spiritlevel)           |
+| [spiritlevel](https://github.com/ashlar-display/spiritlevel)           | Driver-adjacent      | TMDS link bring-up: clock ratio, scrambling and the sink's `TMDS_Config`              | [![crates.io](https://img.shields.io/crates/v/spiritlevel.svg)](https://crates.io/crates/spiritlevel)           |
 | [hdmi-hal](https://github.com/ashlar-display/hdmi-hal)                 | Hardware abstraction | Traits for the DDC bus, SCDC transport, TMDS and FRL PHYs, PHY power, clock and delay | [![crates.io](https://img.shields.io/crates/v/hdmi-hal.svg)](https://crates.io/crates/hdmi-hal)                 |
 | [hdmi-hal-async](https://github.com/ashlar-display/hdmi-hal-async)     | Hardware abstraction | Async companion to hdmi-hal                                                           | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-async.svg)](https://crates.io/crates/hdmi-hal-async)     |
 | [hdmi-hal-i2c-dev](https://github.com/ashlar-display/hdmi-hal-i2c-dev) | Hardware abstraction | Linux userspace backend over `/dev/i2c-N`, for development and validation             | [![crates.io](https://img.shields.io/crates/v/hdmi-hal-i2c-dev.svg)](https://crates.io/crates/hdmi-hal-i2c-dev) |
